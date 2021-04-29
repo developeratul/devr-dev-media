@@ -1,0 +1,1677 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mukta&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+@import "./mixin";
+
+$buttonColor: #7b78ff;
+$buttonHover: #5855f3;
+$background: #0d1219;
+$secondaryBg: #1a2634;
+
+// for the css loader
+$m-01: #3c4359;
+$m-02: #546c8c;
+$m-03: #7ea1bf;
+$m-04: #bacbd9;
+$m-05: #bf80a9;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  outline: none;
+}
+
+button * {
+  font-family: "Titillium Web", sans-serif;
+  text-transform: capitalize;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+::-webkit-scrollbar-thumb {
+  background: $m-01;
+  border-radius: 100px;
+}
+
+.container {
+  width: 950px;
+  margin: auto;
+}
+
+h1,
+h2 {
+  font-weight: 100;
+}
+
+body {
+  background: $background;
+  overflow-x: hidden;
+}
+
+// the loader component
+// copied from -> https://codepen.io/rafaelavlucas/pen/wbrdez
+.loader {
+  height: 90vh;
+  width: 100%;
+  overflow: hidden;
+  @include flexCenter();
+
+  .content {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .planet {
+      width: 65%;
+      height: 65%;
+      background-color: $m-02;
+      border-radius: 100%;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      transform-origin: center center;
+      box-shadow: inset 2px -10px 0px rgba(0, 0, 0, 0.1);
+      animation: planet 5s ease infinite alternate;
+
+      @keyframes planet {
+        0% {
+          transform: rotate(10deg);
+        }
+
+        100% {
+          transform: rotate(-10deg);
+        }
+      }
+
+      /* planet ring */
+      .ring {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        border-radius: 100%;
+        background-color: $m-04;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform-origin: 33% center;
+        box-shadow: 2px -10px 0px rgba(0, 0, 0, 0.1),
+          inset -5px -10px 0px rgba(0, 0, 0, 0.1);
+        animation: ring 3s ease infinite;
+
+        @keyframes ring {
+          0% {
+            transform: rotateX(110deg) rotateZ(0deg) translate(-50px, 5px);
+          }
+
+          100% {
+            transform: rotateX(110deg) rotateZ(360deg) translate(-50px, 5px);
+          }
+        }
+
+        /* small ball */
+        &:before {
+          content: "";
+          position: absolute;
+          width: 10px;
+          height: 30px;
+          border-radius: 100%;
+          background-color: $m-03;
+          z-index: 2;
+          left: calc(0px - 5px);
+          box-shadow: inset -3px 3px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        /* inner ring */
+        &:after {
+          content: "";
+          position: absolute;
+          width: 240px;
+          height: 240px;
+          border-radius: 100%;
+          background-color: $m-03;
+          box-shadow: inset 2px -10px 0px rgba(0, 0, 0, 0.1);
+        }
+      }
+
+      /* to cover the back of the ring */
+      .cover-ring {
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        border-bottom-left-radius: 80%;
+        border-bottom-right-radius: 80%;
+        border-top-left-radius: 100px;
+        border-top-right-radius: 100px;
+        transform: translate(0px, -17px);
+        background-color: $m-02;
+        z-index: 2;
+        box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.1);
+      }
+
+      /* planet spots */
+      .spots {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        z-index: 2;
+
+        span {
+          width: 30px;
+          height: 30px;
+          background-color: $m-01;
+          position: absolute;
+          border-radius: 100%;
+          box-shadow: inset -2px 3px 0px rgba(0, 0, 0, 0.3);
+          animation: dots 5s ease infinite alternate;
+
+          @keyframes dots {
+            0% {
+              box-shadow: inset -3px 3px 0px rgba(0, 0, 0, 0.3);
+            }
+            100% {
+              box-shadow: inset 3px 3px 0px rgba(0, 0, 0, 0.3);
+            }
+          }
+
+          &:nth-child(1) {
+            top: 20px;
+            right: 50px;
+          }
+
+          &:nth-child(2) {
+            top: 40px;
+            left: 50px;
+            width: 15px;
+            height: 15px;
+          }
+
+          &:nth-child(3) {
+            top: 80px;
+            left: 20px;
+            width: 25px;
+            height: 25px;
+          }
+
+          &:nth-child(4) {
+            top: 80px;
+            left: 90px;
+            width: 40px;
+            height: 40px;
+          }
+
+          &:nth-child(5) {
+            top: 160px;
+            left: 70px;
+            width: 15px;
+            height: 15px;
+          }
+
+          &:nth-child(6) {
+            top: 165px;
+            left: 125px;
+            width: 10px;
+            height: 10px;
+          }
+
+          &:nth-child(7) {
+            top: 90px;
+            left: 150px;
+            width: 15px;
+            height: 15px;
+          }
+        }
+      }
+    }
+
+    p {
+      color: $m-04;
+      font-size: 14px;
+      z-index: 2;
+      position: absolute;
+      bottom: -20px;
+      font-family: "Roboto Mono", monospace;
+      animation: text 4s ease infinite;
+      width: 100px;
+      text-align: center;
+
+      @keyframes text {
+        0% {
+          transform: translateX(-30px);
+          letter-spacing: 0px;
+          color: $m-04;
+        }
+
+        25% {
+          letter-spacing: 3px;
+          color: $m-03;
+        }
+
+        50% {
+          transform: translateX(30px);
+          letter-spacing: 0px;
+          color: $m-04;
+        }
+
+        75% {
+          letter-spacing: 3px;
+          color: $m-03;
+        }
+
+        100% {
+          transform: translateX(-30px);
+          letter-spacing: 0px;
+          color: $m-04;
+        }
+      }
+    }
+  }
+}
+
+// the nav bar
+nav {
+  @include flexAround();
+  padding: 5px 0px;
+  background: $secondaryBg;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  * {
+    color: #fff;
+  }
+  .nav_title {
+    a {
+      text-decoration: none;
+      font-family: "Quicksand", sans-serif;
+      color: $buttonColor;
+    }
+  }
+
+  .nav_link {
+    @include flexBetween();
+    li {
+      list-style: none;
+      button {
+        .placeholderText {
+          display: none;
+        }
+      }
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .bars {
+    display: none;
+    div {
+      width: 35px;
+      height: 2px;
+      background: #fff;
+      margin: 5px 0px;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+  }
+
+  .nav_active_link {
+    * {
+      color: $buttonColor;
+    }
+  }
+
+  .nav-active {
+    transform: translate(0) !important;
+  }
+  .toogle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  .toogle .line2 {
+    opacity: 0;
+  }
+  .toogle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
+
+// * the registration page
+.registration_page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: url(../img/formBG.jpg);
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  .content_wrapper {
+    @include flexCenter();
+    .side_infos {
+      width: 400px;
+      background: $background;
+      margin: 10px;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 1px 2px 5px #000;
+      h2 {
+        color: $buttonColor;
+      }
+
+      p {
+        color: $buttonColor;
+        font-size: 1.4rem;
+        margin-top: 20px;
+      }
+
+      ol {
+        li {
+          list-style: inside none;
+          padding: 5px 0px;
+          color: #fff;
+        }
+      }
+    }
+    .regitration_form {
+      width: 400px;
+      background: $background;
+      margin: 10px;
+      box-shadow: 1px 2px 5px #000;
+      text-align: center;
+      padding: 20px;
+      border-radius: 5px;
+      border: none;
+      legend {
+        color: #fff;
+        font-size: 2rem;
+        font-family: "Original Surfer", cursive;
+      }
+
+      h2 {
+        color: $buttonColor;
+        margin-bottom: 20px;
+      }
+
+      .singleField {
+        width: 100%;
+        margin: 10px 0px;
+        input,
+        select,
+        button {
+          width: 100%;
+          padding: 7px 5px;
+          border: none;
+          border-radius: 3px;
+          font-size: 1.01rem;
+          box-shadow: 1px 2px 5px rgb(37, 37, 37);
+          outline: none;
+          background: #fff;
+        }
+
+        button {
+          background: $buttonColor;
+          color: white;
+          font-size: 1.1rem;
+          transition: 0.3s;
+          cursor: pointer;
+          text-transform: capitalize;
+          &:hover {
+            background: $buttonHover;
+          }
+        }
+      }
+
+      .formFooter {
+        margin-top: 20px;
+        a {
+          text-decoration: none;
+          color: $buttonColor;
+        }
+      }
+    }
+  }
+}
+
+// * login page
+.loginPage {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: url(../img/formBG.jpg);
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  .loginForm {
+    width: 400px;
+    box-shadow: 1px 2px 5px #000;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    border: none;
+    background: #000000d5;
+    border-radius: 5px;
+    legend {
+      width: 150px;
+      margin: auto;
+      img {
+        width: 100%;
+        border: 2px solid $buttonColor;
+        border-top-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+      }
+    }
+    .singleField {
+      width: 100%;
+      margin: 8px auto;
+      input,
+      button {
+        width: 100%;
+        padding: 10px;
+        outline: none;
+        border-radius: 3px;
+      }
+      input {
+        border: none;
+      }
+      button {
+        cursor: pointer;
+        background: $buttonColor;
+        color: white;
+        border: none;
+        font-size: 1.1rem;
+        transition: 0.5s;
+        padding: 7px;
+        text-transform: capitalize;
+        &:hover {
+          background: $buttonHover;
+        }
+      }
+    }
+
+    .formFooter {
+      margin-top: 20px;
+      a {
+        text-decoration: none;
+        color: $buttonColor;
+      }
+    }
+  }
+}
+
+// * the home page
+.home_page {
+  * {
+    color: #fff;
+  }
+
+  .home_content_wrapper {
+    @include flexCenter();
+    align-items: flex-start;
+    padding: 20px 0px;
+
+    .no_message {
+      padding: 10px;
+      background: $secondaryBg;
+      border-radius: 3px;
+      width: 450px;
+      .no_img {
+        width: 200px;
+        margin: 20px auto;
+        img {
+          width: 100%;
+        }
+      }
+
+      h2 {
+        font-family: "Raleway", sans-serif;
+        text-align: center;
+        padding-bottom: 10px;
+        span {
+          color: $buttonColor;
+        }
+      }
+      p {
+        font-family: "Mukta", sans-serif;
+      }
+
+      .buttoncontainer {
+        margin: 20px 0px;
+        @include flexAround();
+        button {
+          background: $buttonColor;
+          transition: 0.3s;
+          padding: 5px 10px;
+          &:hover {
+            background: $buttonHover;
+          }
+        }
+      }
+    }
+
+    .singlePost {
+      width: 450px;
+      background: $m-01;
+      padding: 6px;
+      border-radius: 3px;
+      margin: 10px;
+      box-shadow: 1px 2px 5px #000;
+      .post_img {
+        width: 100%;
+        min-height: 250px;
+        max-height: 350px;
+        margin: 5px 0px;
+        border-radius: 3px;
+      }
+
+      .post_desc {
+        padding: 5px 0px;
+        .post_title {
+          font-family: "Raleway", sans-serif;
+          font-size: 1.1rem;
+        }
+      }
+
+      .post_header {
+        padding: 10px 0px;
+        @include flexBetween();
+        .post_header_Details {
+          @include flexAround();
+          .poster_details {
+            padding-left: 10px;
+            h2 {
+              a {
+                text-decoration: none;
+                font-family: "Raleway", sans-serif;
+                color: $buttonColor;
+                transition: 0.3s;
+                &:hover {
+                  color: $buttonHover;
+                }
+              }
+            }
+            p {
+              font-family: "Mukta", sans-serif;
+            }
+          }
+        }
+      }
+
+      .postOptions {
+        @include flexBetween();
+        padding: 10px 0px;
+        div {
+          width: 49%;
+          button {
+            width: 100%;
+          }
+        }
+
+        .likePost {
+          button {
+            background: $buttonColor;
+            transition: 0.3s;
+            &:hover {
+              background: $buttonHover;
+            }
+          }
+        }
+
+        .comment {
+          button {
+            background: rgb(0, 140, 255);
+          }
+        }
+      }
+    }
+  }
+}
+
+// * single post page
+.singlePostPage {
+  padding: 20px 0px;
+  * {
+    color: #fff;
+  }
+
+  .singlePostContent_wrapper {
+    padding: 20px 0px;
+
+    .singlePost {
+      background: $m-01;
+      border-radius: 3px;
+      .post_header {
+        background: $secondaryBg;
+        padding: 10px;
+        border-radius: 3px;
+        @include flexBetween();
+        .post_user_details {
+          @include flexCenter();
+          .post_details {
+            margin-left: 10px;
+            h2 {
+              a {
+                text-decoration: none;
+                font-family: "Raleway", sans-serif;
+                color: $buttonColor;
+                transition: 0.3s;
+                &:hover {
+                  color: $buttonHover;
+                }
+              }
+            }
+            p {
+              font-family: "Mukta", sans-serif;
+            }
+          }
+        }
+      }
+
+      .post_content {
+        padding: 10px 5px;
+        .post_desc {
+          white-space: pre-wrap;
+          h2 {
+            font-family: "Nunito", sans-serif;
+            font-size: 1.5rem;
+          }
+          p {
+            font-family: "Poppins", sans-serif;
+          }
+        }
+
+        .postImg {
+          margin: 10px auto;
+          max-width: 100%;
+          img {
+            width: 100%;
+            border-radius: 3px;
+          }
+        }
+      }
+
+      .postOptions {
+        @include flexAround();
+        padding: 10px 0px;
+        div {
+          width: 48%;
+          button {
+            width: 100%;
+          }
+        }
+
+        .likePost {
+          button {
+            background: $buttonColor;
+            transition: 0.3s;
+            &:hover {
+              background: $buttonHover;
+            }
+          }
+        }
+
+        .comment {
+          button {
+            background: rgb(0, 140, 255);
+            transition: 0.3s;
+            &:hover {
+              background: rgb(0, 118, 214);
+            }
+          }
+        }
+      }
+
+      .postLikersList {
+        padding: 0px 10px;
+        .showLikers {
+          cursor: pointer;
+          font-family: "Mukta", sans-serif;
+          color: #9492ff;
+          &:hover .likerList {
+            transform: scaleY(1);
+          }
+        }
+        .likerList {
+          position: absolute;
+          background: $secondaryBg;
+          color: #fff;
+          padding: 10px;
+          border-radius: 2px;
+          z-index: 1;
+          max-height: 200px;
+          overflow-y: scroll;
+          transform-origin: top;
+          transform: scaleY(0);
+          transition: 0.3s;
+          min-width: 150px;
+          .singleLiker {
+            padding: 5px 0px;
+            cursor: default;
+            &:hover {
+              * {
+                color: $buttonColor;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .comment_section {
+    padding: 20px 0px;
+
+    .create_comment {
+      padding: 20px 0px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid $buttonColor;
+      @include flexAround();
+      align-items: flex-start;
+
+      textarea {
+        width: 85%;
+        padding: 8px 6px 4px 6px;
+        border: none;
+        border-radius: 3px;
+        height: 36px;
+        transition: 0.3s;
+        color: #000;
+        resize: vertical;
+        border: 2px solid #fff;
+        &:focus {
+          height: 150px;
+          border-color: $buttonHover;
+        }
+      }
+      button {
+        background: $buttonColor;
+        transition: 0.3s;
+        width: 10%;
+        &:hover {
+          background: $buttonHover;
+        }
+      }
+    }
+
+    .allComment {
+      padding: 10px 0px;
+      .no_message {
+        text-align: center;
+        font-family: "Raleway", sans-serif;
+        color: $buttonColor;
+      }
+
+      .singleComment {
+        padding: 10px 0px;
+        margin: 10px 0px;
+        border-bottom: 1px solid $buttonColor;
+        .comment_headers {
+          @include flexBetween();
+          align-items: flex-start;
+          padding: 10px 0px;
+          .comment_details {
+            @include flexBetween();
+            .desc {
+              margin-left: 10px;
+              h2 {
+                padding-bottom: 3px;
+                a {
+                  text-decoration: none;
+                  font-family: "Raleway", sans-serif;
+                  color: $buttonColor;
+                  transition: 0.3s;
+                  &:hover {
+                    color: $buttonHover;
+                  }
+                }
+              }
+              p {
+                font-family: "Mukta", sans-serif;
+              }
+            }
+          }
+        }
+
+        .comment_body {
+          padding: 5px 0px;
+          p {
+            font-family: "Poppins", sans-serif;
+          }
+        }
+
+        .reply_section {
+          padding: 5px 0px;
+          display: flex;
+          align-items: center;
+          input {
+            border: none;
+            padding: 9.5px 10px;
+            border-radius: 2px;
+            color: #000;
+            margin-right: 5px;
+          }
+          button {
+            background: $buttonColor;
+            transition: 0.3s;
+            &:hover {
+              background: $buttonHover;
+            }
+          }
+        }
+
+        .allReplies {
+          padding: 5px 0px;
+          summary {
+            padding: 5px 0px;
+            user-select: none;
+            font-family: "Poppins", sans-serif;
+            cursor: pointer;
+            color: $buttonColor;
+          }
+
+          .empty {
+            font-family: "Raleway", sans-serif;
+          }
+
+          .singleReply {
+            padding: 10px 0px;
+            .reply_header {
+              @include flexBetween();
+              .reply_user_Details {
+                @include flexBetween();
+                .desc {
+                  margin-left: 5px;
+                }
+                h2 {
+                  a {
+                    text-decoration: none;
+                    font-family: "Raleway", sans-serif;
+                    color: $buttonColor;
+                  }
+                }
+                p {
+                  font-size: 0.8rem;
+                }
+              }
+            }
+
+            .replyBody {
+              padding: 5px 0px;
+              p {
+                font-family: "Poppins", sans-serif;
+                padding: 5px 0px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// * the profile page
+.profile_page {
+  background: linear-gradient(180deg, $buttonHover 150px, $background 300px);
+  * {
+    color: #fff;
+  }
+
+  .profile_page_content_wrapper {
+    padding: 30px 0px;
+
+    // ProfileHeader.js
+    .profile_header {
+      // a fieldset
+      border-radius: 5px;
+      background: $secondaryBg;
+      border: none;
+      padding: 20px 0px;
+      legend {
+        text-align: center;
+        img {
+          width: 100%;
+          border: 3px solid $buttonHover;
+          border-radius: 100%;
+        }
+      }
+
+      .profile_intro {
+        text-align: center;
+        padding: 10px;
+        h1 {
+          padding-bottom: 5px;
+          font-family: "Raleway", sans-serif;
+        }
+        p {
+          font-family: "Mukta", sans-serif;
+          &:nth-child(3) {
+            padding: 5px 0px;
+            @include flexCenter();
+            div {
+              margin: 0px 10px;
+              color: rgb(0, 255, 98);
+              font-family: "Mukta", sans-serif;
+              word-spacing: 5px;
+            }
+          }
+        }
+      }
+
+      .primary_infos {
+        @include flexCenter();
+        margin: 20px 0px;
+        .single_info {
+          margin: 0px 15px;
+          display: flex;
+          align-items: center;
+          svg {
+            fill: $buttonColor;
+          }
+          span {
+            padding: 0px 8px;
+            font-family: "Mukta", sans-serif;
+            span {
+              color: rgb(0, 255, 98);
+            }
+          }
+        }
+      }
+
+      .profile_options {
+        @include flexCenter();
+        .singleOption {
+          margin: 0px 10px;
+          button {
+            background: $buttonColor;
+            transition: 0.3s;
+            padding: 6px 15px;
+            a {
+              text-decoration: none;
+            }
+            &:hover {
+              background: $buttonHover;
+            }
+          }
+        }
+      }
+
+      .profile_links {
+        @include flexCenter();
+        padding-bottom: 15px;
+        .singleLink {
+          margin: 0px 10px;
+          transition: 0.4s;
+          &:hover svg {
+            fill: $buttonHover;
+          }
+        }
+      }
+    }
+
+    // ProfileContent.js
+    .profile_content {
+      margin: 20px 0px;
+      .profile_content_wrapper {
+        @include flexBetween();
+        align-items: flex-start;
+        .userInfoAndActivity {
+          width: 35%;
+
+          .singleInfo {
+            padding: 10px;
+            margin-bottom: 10px;
+            background: #191e25;
+            border-radius: 3px;
+            h2 {
+              font-family: "Raleway", sans-serif;
+              color: $buttonColor;
+              padding: 5px 0px;
+            }
+            p {
+              font-family: "Mukta", sans-serif;
+              display: flex;
+              align-items: center;
+              padding: 5px 0px;
+              div {
+                padding-right: 5px;
+                svg {
+                  fill: rgb(0, 255, 98);
+                }
+              }
+            }
+          }
+        }
+
+        .userPosts {
+          width: 64%;
+          border-radius: 5px;
+          div.makeStyles-root-7,
+          div.makeStyles-root-2,
+          .tabContainer {
+            width: 100%;
+            background: #191e25;
+
+            header {
+              background: $secondaryBg;
+              z-index: 1;
+              position: sticky;
+              top: 0;
+              left: 0;
+            }
+
+            .follower_content_wrapper {
+              @include flexCenter();
+              .singleFollower {
+                width: 260px;
+                background: $m-01;
+                padding: 10px;
+                border-radius: 5px;
+                box-shadow: 1px 2px 5px #000;
+                @include flexAround();
+                margin: 8px;
+                .followerInfo {
+                  h2 {
+                    a {
+                      text-decoration: none;
+                      transition: 0.3s;
+                      font-family: "Raleway", sans-serif;
+                      &:hover {
+                        color: $buttonColor;
+                      }
+                    }
+                  }
+                  p {
+                    font-family: "Mukta", sans-serif;
+                  }
+                }
+              }
+            }
+
+            .post_wrapper {
+              @include flexAround();
+              .singlepost {
+                width: 100%;
+                background: $m-01;
+                padding: 7px;
+                border-radius: 3px;
+                box-shadow: 1px 2px 5px #000;
+                margin: 10px 0px;
+                .postHeader {
+                  @include flexBetween();
+                  align-items: flex-start;
+                  padding: 10px 0px;
+                  .postAvatar {
+                    @include flexBetween();
+                    .postInfo {
+                      margin-left: 10px;
+                      h2 {
+                        a {
+                          text-decoration: none;
+                          font-family: "Raleway", sans-serif;
+                          color: $buttonColor;
+                          transition: 0.3s;
+                          &:hover {
+                            color: $buttonHover;
+                          }
+                        }
+                      }
+                      p {
+                        font-family: "Mukta", sans-serif;
+                      }
+                    }
+                  }
+                }
+
+                .postImg {
+                  width: 100%;
+                  img {
+                    width: 100%;
+                    border-radius: 3px;
+                  }
+                }
+
+                // the post text shown in the post
+                .postTitle {
+                  font-family: "Raleway", sans-serif;
+                  padding: 5px 0px;
+                }
+
+                .visitPostButton {
+                  button {
+                    background: $buttonColor;
+                    transition: 0.3s;
+                    padding: 5px 20px;
+                    &:hover {
+                      background: $buttonHover;
+                    }
+                  }
+                }
+              }
+            }
+
+            .no_message {
+              text-align: center;
+              font-weight: 100;
+              font-family: "Raleway", sans-serif;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// * the settings page
+.settingsPage {
+  padding: 30px 0px;
+  * {
+    color: #fff;
+  }
+
+  .settings_content_wrapper {
+    width: 100%;
+    background: $secondaryBg;
+    border-radius: 5px;
+    padding: 20px 10px;
+    margin-bottom: 20px;
+
+    // UpdateAvatar.js
+    .user_avatar {
+      width: 200px;
+      margin: 20px auto;
+      display: grid;
+      place-items: center;
+      img {
+        border-radius: 100%;
+      }
+    }
+
+    .buttonContainer {
+      @include flexBetween();
+
+      .fileUploadField {
+        width: 49%;
+        margin: 10px 0px;
+        .MuiButton-root {
+          width: 100%;
+          background: $buttonColor;
+          transition: 0.3s;
+          text-transform: capitalize;
+          &:hover {
+            background: $buttonHover;
+          }
+        }
+      }
+
+      .singleField {
+        width: 49%;
+        button {
+          transition: 0.3s;
+          width: 100%;
+          span {
+            padding: 0px 5px;
+          }
+          &:hover {
+            background: $buttonHover;
+          }
+        }
+      }
+    }
+
+    // UpdateProfileInfo.js
+    .section_heading {
+      color: $buttonColor;
+      margin-bottom: 20px;
+    }
+    .input_s_wrapper {
+      @include flexBetween();
+      .singleInput {
+        width: 300px;
+        margin: 7px 2px;
+        .inputLabelText {
+          padding: 5px 0px;
+          font-family: "Mukta", sans-serif;
+        }
+        input,
+        select {
+          width: 100%;
+          color: #000;
+          padding: 10px 10px;
+          border: none;
+          outline: none;
+          border-radius: 3px;
+          margin: 3px 0px;
+          box-shadow: 2px 2px 3px $buttonColor;
+        }
+        option {
+          color: #000;
+        }
+        button {
+          width: 100%;
+          background: $buttonColor;
+          transition: 0.3s;
+          &:hover {
+            background: $buttonHover;
+          }
+        }
+      }
+    }
+
+    .deleteAccount {
+      h2 {
+        font-family: "Raleway", sans-serif;
+        color: $buttonColor;
+      }
+      button {
+        background: red;
+        padding: 6px 20px;
+        margin: 20px 0px;
+        transition: 0.3s;
+        &:hover {
+          background: rgb(182, 0, 0);
+        }
+      }
+    }
+  }
+}
+
+// * the user's page
+.usersPage {
+  padding: 20px 0px;
+  * {
+    color: #fff;
+  }
+
+  .heading {
+    text-align: center;
+    font-family: "Mukta", sans-serif;
+    text-shadow: 1px 2px 10px #000;
+    margin-bottom: 30px;
+  }
+
+  .searchUser {
+    margin-bottom: 30px;
+    .inputField {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      input {
+        background: #fff;
+        border-radius: 5px;
+      }
+
+      button {
+        background: $buttonColor;
+        transition: 0.3s;
+        margin: 0px 10px;
+        padding: 16px 20px;
+        &:hover {
+          background: $buttonHover;
+        }
+      }
+    }
+  }
+
+  .users_wrapper {
+    @include flexCenter();
+    .singleuser {
+      width: 300px;
+      background: $secondaryBg;
+      box-shadow: 1px 2px 5px #000;
+      margin: 8px;
+      padding: 10px;
+      border-radius: 5px;
+      position: relative;
+      transition: 0.3s;
+      &:hover {
+        transform: translateY(-10px);
+      }
+
+      .profileAvatar {
+        width: 150px;
+        height: 150px;
+        margin: 5px auto;
+        img {
+          width: 100%;
+          border-radius: 100%;
+          border: 2px solid $buttonColor;
+        }
+      }
+
+      .user_intro {
+        text-align: center;
+        padding: 5px 0px;
+        h2 {
+          padding-bottom: 5px;
+          a {
+            text-decoration: none;
+            font-family: "Raleway", sans-serif;
+            color: $buttonColor;
+          }
+        }
+        p {
+          font-family: "Mukta", sans-serif;
+        }
+      }
+    }
+  }
+}
+
+// * Edit post page
+.EditPostPage {
+  .editPostContentWrapper {
+    padding: 20px 0px;
+    .heading {
+      text-align: center;
+      color: $buttonColor;
+      font-family: "Raleway", sans-serif;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .singleField {
+      width: 100%;
+      margin: 10px 0px;
+      input,
+      textarea,
+      img {
+        width: 100%;
+        border-radius: 3px;
+      }
+
+      input,
+      textarea {
+        padding: 15px 10px;
+        outline: none;
+        border: none;
+        resize: vertical;
+      }
+    }
+  }
+}
+
+// * the not found page
+.notfoundPage {
+  min-height: 100vh;
+  @include flexCenter();
+  flex-direction: column;
+  * {
+    color: #fff;
+    font-family: "Poppins";
+    text-align: center;
+  }
+  p {
+    color: #ff1000;
+  }
+  .ErrorImg {
+    width: 400px;
+    margin-bottom: 20px;
+    padding: 10px;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+// for ipads
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 750px;
+  }
+
+  // * the registration page
+  .registration_page {
+    .content_wrapper {
+      .side_infos {
+        width: 47%;
+        margin: 5px;
+      }
+      .regitration_form {
+        width: 47%;
+        margin: 5px;
+      }
+    }
+  }
+
+  // * the settings page
+  .settingsPage {
+    .settings_content_wrapper {
+      .input_s_wrapper {
+        @include flexAround();
+      }
+    }
+  }
+}
+
+// *the post creation page
+.createPostPage {
+  * {
+    color: #fff;
+  }
+  .Post_content_wrapper {
+    @include flexAround();
+    align-items: flex-start;
+    padding: 20px 0px;
+    .post_rules {
+      width: 330px;
+      padding: 10px;
+      background: $secondaryBg;
+      border-radius: 5px;
+      h2 {
+        font-family: "Raleway", sans-serif;
+        color: $buttonColor;
+      }
+      ol {
+        list-style: inside none;
+        padding: 10px 0px;
+        li {
+          padding: 5px 0px;
+          font-family: "Mukta", sans-serif;
+        }
+      }
+    }
+
+    .post_creation_box {
+      width: 600px;
+      padding: 10px;
+      background: $secondaryBg;
+      border-radius: 5px;
+      .heading {
+        font-family: "Raleway", sans-serif;
+        span {
+          color: $buttonColor;
+        }
+      }
+
+      .postform {
+        margin: 20px 0px;
+        .singleField {
+          width: 100%;
+          margin: 10px 0px;
+          input,
+          textarea,
+          button,
+          span,
+          img {
+            width: 100%;
+          }
+
+          input,
+          textarea {
+            padding: 10px;
+            border: none;
+            outline: none;
+            border-radius: 3px;
+            color: #000;
+            resize: vertical;
+          }
+        }
+      }
+    }
+  }
+}
+
+// for mobiles and tabs
+@media screen and (max-width: 768px) {
+  * {
+    cursor: default !important;
+  }
+  .container {
+    width: 92%;
+  }
+
+  // the nav bar / app bar
+  nav {
+    .bars {
+      display: block;
+    }
+
+    .nav_link {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 230px;
+      height: 100vh;
+      background: $secondaryBg;
+      transform: translate(-100%);
+      transition: 0.3s;
+      flex-direction: column;
+      justify-content: center;
+      li {
+        button {
+          .placeholderText {
+            display: block;
+            margin: 0px 5px;
+          }
+        }
+      }
+    }
+  }
+
+  // * the registration page
+  .registration_page {
+    padding: 30px 0px;
+    .content_wrapper {
+      .side_infos {
+        margin: 10px 0px;
+        width: 100%;
+      }
+      .regitration_form {
+        margin: 10px 0px;
+        width: 100%;
+        padding: 20px 12px;
+      }
+    }
+  }
+
+  // * the login page
+  .loginPage {
+    padding: 20px 0px;
+    .loginForm {
+      width: 100%;
+      padding: 15px;
+    }
+  }
+
+  // * the profile page
+  .profile_page {
+    .profile_page_content_wrapper {
+      .profile_header {
+        legend {
+          width: 150px;
+          height: 150px;
+        }
+        .primary_infos {
+          align-items: flex-start;
+          flex-direction: column;
+          .single_info {
+            margin: 5px 0px;
+            padding-left: 10px;
+            width: 100%;
+            span {
+              padding: 0px 6px;
+            }
+          }
+        }
+      }
+
+      .profile_content {
+        .profile_content_wrapper {
+          @include flexCenter();
+          .userInfoAndActivity {
+            width: 100%;
+            margin-bottom: 10px;
+          }
+
+          .userPosts {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  // * settings page
+  .settingsPage {
+    .settings_content_wrapper {
+      .buttonContainer {
+        flex-direction: column;
+        justify-content: center;
+        .fileUploadField {
+          width: 100%;
+        }
+        .singleField {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  // * the post creation page
+  .createPostPage {
+    .Post_content_wrapper {
+      .post_rules {
+        margin-bottom: 20px;
+        width: 100%;
+      }
+
+      .post_creation_box {
+        width: 100%;
+      }
+    }
+  }
+
+  // * the singlepost page
+  .singlePostPage {
+    .comment_section {
+      .create_comment {
+        textarea {
+          width: 100%;
+          margin-bottom: 5px;
+        }
+        button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
