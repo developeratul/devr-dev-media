@@ -1,0 +1,39 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "the back-end of dev-media-2.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "setup": "npm install && cd client && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ratul-oss/dev-media-2.0.git"
+  },
+  "keywords": [
+    "dev-media",
+    "devr-dev-media",
+    "devr",
+    "dev"
+  ],
+  "author": "ratul-oss",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ratul-oss/dev-media-2.0/issues"
+  },
+  "homepage": "https://github.com/Ratul-oss/dev-media-2.0#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cloudinary": "^1.25.1",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.15",
+    "validator": "^13.6.0"
+  }
+}

@@ -1,0 +1,2385 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mukta&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  outline: none;
+}
+
+button * {
+  font-family: "Titillium Web", sans-serif;
+  text-transform: capitalize;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3c4359;
+  border-radius: 100px;
+}
+
+.container {
+  width: 950px;
+  margin: auto;
+}
+
+h1,
+h2 {
+  font-weight: 100;
+}
+
+body {
+  background: #0d1219;
+  overflow-x: hidden;
+}
+
+.loader {
+  height: 90vh;
+  width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.loader .content {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.loader .content .planet {
+  width: 65%;
+  height: 65%;
+  background-color: #546c8c;
+  border-radius: 100%;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-box-shadow: inset 2px -10px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 2px -10px 0px rgba(0, 0, 0, 0.1);
+  -webkit-animation: planet 5s ease infinite alternate;
+          animation: planet 5s ease infinite alternate;
+  /* planet ring */
+  /* to cover the back of the ring */
+  /* planet spots */
+}
+
+@-webkit-keyframes planet {
+  0% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  100% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+}
+
+@keyframes planet {
+  0% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  100% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+}
+
+.loader .content .planet .ring {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 100%;
+  background-color: #bacbd9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transform-origin: 33% center;
+          transform-origin: 33% center;
+  -webkit-box-shadow: 2px -10px 0px rgba(0, 0, 0, 0.1), inset -5px -10px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: 2px -10px 0px rgba(0, 0, 0, 0.1), inset -5px -10px 0px rgba(0, 0, 0, 0.1);
+  -webkit-animation: ring 3s ease infinite;
+          animation: ring 3s ease infinite;
+  /* small ball */
+  /* inner ring */
+}
+
+@-webkit-keyframes ring {
+  0% {
+    -webkit-transform: rotateX(110deg) rotateZ(0deg) translate(-50px, 5px);
+            transform: rotateX(110deg) rotateZ(0deg) translate(-50px, 5px);
+  }
+  100% {
+    -webkit-transform: rotateX(110deg) rotateZ(360deg) translate(-50px, 5px);
+            transform: rotateX(110deg) rotateZ(360deg) translate(-50px, 5px);
+  }
+}
+
+@keyframes ring {
+  0% {
+    -webkit-transform: rotateX(110deg) rotateZ(0deg) translate(-50px, 5px);
+            transform: rotateX(110deg) rotateZ(0deg) translate(-50px, 5px);
+  }
+  100% {
+    -webkit-transform: rotateX(110deg) rotateZ(360deg) translate(-50px, 5px);
+            transform: rotateX(110deg) rotateZ(360deg) translate(-50px, 5px);
+  }
+}
+
+.loader .content .planet .ring:before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: #7ea1bf;
+  z-index: 2;
+  left: calc(0px - 5px);
+  -webkit-box-shadow: inset -3px 3px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: inset -3px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+.loader .content .planet .ring:after {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border-radius: 100%;
+  background-color: #7ea1bf;
+  -webkit-box-shadow: inset 2px -10px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 2px -10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.loader .content .planet .cover-ring {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  border-bottom-left-radius: 80%;
+  border-bottom-right-radius: 80%;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  -webkit-transform: translate(0px, -17px);
+          transform: translate(0px, -17px);
+  background-color: #546c8c;
+  z-index: 2;
+  -webkit-box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.1);
+}
+
+.loader .content .planet .spots {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  z-index: 2;
+}
+
+.loader .content .planet .spots span {
+  width: 30px;
+  height: 30px;
+  background-color: #3c4359;
+  position: absolute;
+  border-radius: 100%;
+  -webkit-box-shadow: inset -2px 3px 0px rgba(0, 0, 0, 0.3);
+          box-shadow: inset -2px 3px 0px rgba(0, 0, 0, 0.3);
+  -webkit-animation: dots 5s ease infinite alternate;
+          animation: dots 5s ease infinite alternate;
+}
+
+@-webkit-keyframes dots {
+  0% {
+    -webkit-box-shadow: inset -3px 3px 0px rgba(0, 0, 0, 0.3);
+            box-shadow: inset -3px 3px 0px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    -webkit-box-shadow: inset 3px 3px 0px rgba(0, 0, 0, 0.3);
+            box-shadow: inset 3px 3px 0px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@keyframes dots {
+  0% {
+    -webkit-box-shadow: inset -3px 3px 0px rgba(0, 0, 0, 0.3);
+            box-shadow: inset -3px 3px 0px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    -webkit-box-shadow: inset 3px 3px 0px rgba(0, 0, 0, 0.3);
+            box-shadow: inset 3px 3px 0px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.loader .content .planet .spots span:nth-child(1) {
+  top: 20px;
+  right: 50px;
+}
+
+.loader .content .planet .spots span:nth-child(2) {
+  top: 40px;
+  left: 50px;
+  width: 15px;
+  height: 15px;
+}
+
+.loader .content .planet .spots span:nth-child(3) {
+  top: 80px;
+  left: 20px;
+  width: 25px;
+  height: 25px;
+}
+
+.loader .content .planet .spots span:nth-child(4) {
+  top: 80px;
+  left: 90px;
+  width: 40px;
+  height: 40px;
+}
+
+.loader .content .planet .spots span:nth-child(5) {
+  top: 160px;
+  left: 70px;
+  width: 15px;
+  height: 15px;
+}
+
+.loader .content .planet .spots span:nth-child(6) {
+  top: 165px;
+  left: 125px;
+  width: 10px;
+  height: 10px;
+}
+
+.loader .content .planet .spots span:nth-child(7) {
+  top: 90px;
+  left: 150px;
+  width: 15px;
+  height: 15px;
+}
+
+.loader .content p {
+  color: #bacbd9;
+  font-size: 14px;
+  z-index: 2;
+  position: absolute;
+  bottom: -20px;
+  font-family: "Roboto Mono", monospace;
+  -webkit-animation: text 4s ease infinite;
+          animation: text 4s ease infinite;
+  width: 100px;
+  text-align: center;
+}
+
+@-webkit-keyframes text {
+  0% {
+    -webkit-transform: translateX(-30px);
+            transform: translateX(-30px);
+    letter-spacing: 0px;
+    color: #bacbd9;
+  }
+  25% {
+    letter-spacing: 3px;
+    color: #7ea1bf;
+  }
+  50% {
+    -webkit-transform: translateX(30px);
+            transform: translateX(30px);
+    letter-spacing: 0px;
+    color: #bacbd9;
+  }
+  75% {
+    letter-spacing: 3px;
+    color: #7ea1bf;
+  }
+  100% {
+    -webkit-transform: translateX(-30px);
+            transform: translateX(-30px);
+    letter-spacing: 0px;
+    color: #bacbd9;
+  }
+}
+
+@keyframes text {
+  0% {
+    -webkit-transform: translateX(-30px);
+            transform: translateX(-30px);
+    letter-spacing: 0px;
+    color: #bacbd9;
+  }
+  25% {
+    letter-spacing: 3px;
+    color: #7ea1bf;
+  }
+  50% {
+    -webkit-transform: translateX(30px);
+            transform: translateX(30px);
+    letter-spacing: 0px;
+    color: #bacbd9;
+  }
+  75% {
+    letter-spacing: 3px;
+    color: #7ea1bf;
+  }
+  100% {
+    -webkit-transform: translateX(-30px);
+            transform: translateX(-30px);
+    letter-spacing: 0px;
+    color: #bacbd9;
+  }
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 5px 0px;
+  background: #1a2634;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+
+nav * {
+  color: #fff;
+}
+
+nav .nav_title a {
+  text-decoration: none;
+  font-family: "Quicksand", sans-serif;
+  color: #7b78ff;
+}
+
+nav .nav_link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+nav .nav_link li {
+  list-style: none;
+}
+
+nav .nav_link li button .placeholderText {
+  display: none;
+}
+
+nav .nav_link li a {
+  text-decoration: none;
+}
+
+nav .bars {
+  display: none;
+}
+
+nav .bars div {
+  width: 35px;
+  height: 2px;
+  background: #fff;
+  margin: 5px 0px;
+  border-radius: 5px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+nav .nav_active_link * {
+  color: #7b78ff;
+}
+
+nav .nav-active {
+  -webkit-transform: translate(0) !important;
+          transform: translate(0) !important;
+}
+
+nav .toogle .line1 {
+  -webkit-transform: rotate(-45deg) translate(-5px, 6px);
+          transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+nav .toogle .line2 {
+  opacity: 0;
+}
+
+nav .toogle .line3 {
+  -webkit-transform: rotate(45deg) translate(-5px, -6px);
+          transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.registration_page {
+  min-height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  background: url(../img/formBG.jpg);
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.registration_page .content_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.registration_page .content_wrapper .side_infos {
+  width: 400px;
+  background: #0d1219;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 2px 5px #000;
+          box-shadow: 1px 2px 5px #000;
+}
+
+.registration_page .content_wrapper .side_infos h2 {
+  color: #7b78ff;
+}
+
+.registration_page .content_wrapper .side_infos p {
+  color: #7b78ff;
+  font-size: 1.4rem;
+  margin-top: 20px;
+}
+
+.registration_page .content_wrapper .side_infos ol li {
+  list-style: inside none;
+  padding: 5px 0px;
+  color: #fff;
+}
+
+.registration_page .content_wrapper .regitration_form {
+  width: 400px;
+  background: #0d1219;
+  margin: 10px;
+  -webkit-box-shadow: 1px 2px 5px #000;
+          box-shadow: 1px 2px 5px #000;
+  text-align: center;
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+}
+
+.registration_page .content_wrapper .regitration_form legend {
+  color: #fff;
+  font-size: 2rem;
+  font-family: "Original Surfer", cursive;
+}
+
+.registration_page .content_wrapper .regitration_form h2 {
+  color: #7b78ff;
+  margin-bottom: 20px;
+}
+
+.registration_page .content_wrapper .regitration_form .singleField {
+  width: 100%;
+  margin: 10px 0px;
+}
+
+.registration_page .content_wrapper .regitration_form .singleField input,
+.registration_page .content_wrapper .regitration_form .singleField select,
+.registration_page .content_wrapper .regitration_form .singleField button {
+  width: 100%;
+  padding: 7px 5px;
+  border: none;
+  border-radius: 3px;
+  font-size: 1.01rem;
+  -webkit-box-shadow: 1px 2px 5px #252525;
+          box-shadow: 1px 2px 5px #252525;
+  outline: none;
+  background: #fff;
+}
+
+.registration_page .content_wrapper .regitration_form .singleField button {
+  background: #7b78ff;
+  color: white;
+  font-size: 1.1rem;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.registration_page .content_wrapper .regitration_form .singleField button:hover {
+  background: #5855f3;
+}
+
+.registration_page .content_wrapper .regitration_form .formFooter {
+  margin-top: 20px;
+}
+
+.registration_page .content_wrapper .regitration_form .formFooter a {
+  text-decoration: none;
+  color: #7b78ff;
+}
+
+.loginPage {
+  min-height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  background: url(../img/formBG.jpg);
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.loginPage .loginForm {
+  width: 400px;
+  -webkit-box-shadow: 1px 2px 5px #000;
+          box-shadow: 1px 2px 5px #000;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  border: none;
+  background: #000000d5;
+  border-radius: 5px;
+}
+
+.loginPage .loginForm legend {
+  width: 150px;
+  margin: auto;
+}
+
+.loginPage .loginForm legend img {
+  width: 100%;
+  border: 2px solid #7b78ff;
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+.loginPage .loginForm .singleField {
+  width: 100%;
+  margin: 8px auto;
+}
+
+.loginPage .loginForm .singleField input,
+.loginPage .loginForm .singleField button {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border-radius: 3px;
+}
+
+.loginPage .loginForm .singleField input {
+  border: none;
+}
+
+.loginPage .loginForm .singleField button {
+  cursor: pointer;
+  background: #7b78ff;
+  color: white;
+  border: none;
+  font-size: 1.1rem;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  padding: 7px;
+  text-transform: capitalize;
+}
+
+.loginPage .loginForm .singleField button:hover {
+  background: #5855f3;
+}
+
+.loginPage .loginForm .formFooter {
+  margin-top: 20px;
+}
+
+.loginPage .loginForm .formFooter a {
+  text-decoration: none;
+  color: #7b78ff;
+}
+
+.home_page * {
+  color: #fff;
+}
+
+.home_page .home_content_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 20px 0px;
+}
+
+.home_page .home_content_wrapper .no_message {
+  padding: 10px;
+  background: #1a2634;
+  border-radius: 3px;
+  width: 450px;
+}
+
+.home_page .home_content_wrapper .no_message .no_img {
+  width: 200px;
+  margin: 20px auto;
+}
+
+.home_page .home_content_wrapper .no_message .no_img img {
+  width: 100%;
+}
+
+.home_page .home_content_wrapper .no_message h2 {
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.home_page .home_content_wrapper .no_message h2 span {
+  color: #7b78ff;
+}
+
+.home_page .home_content_wrapper .no_message p {
+  font-family: "Mukta", sans-serif;
+}
+
+.home_page .home_content_wrapper .no_message .buttoncontainer {
+  margin: 20px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.home_page .home_content_wrapper .no_message .buttoncontainer button {
+  background: #7b78ff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  padding: 5px 10px;
+}
+
+.home_page .home_content_wrapper .no_message .buttoncontainer button:hover {
+  background: #5855f3;
+}
+
+.home_page .home_content_wrapper .singlePost {
+  width: 450px;
+  background: #3c4359;
+  padding: 6px;
+  border-radius: 3px;
+  margin: 10px;
+  -webkit-box-shadow: 1px 2px 5px #000;
+          box-shadow: 1px 2px 5px #000;
+}
+
+.home_page .home_content_wrapper .singlePost .post_img {
+  width: 100%;
+  min-height: 250px;
+  max-height: 350px;
+  margin: 5px 0px;
+  border-radius: 3px;
+}
+
+.home_page .home_content_wrapper .singlePost .post_desc {
+  padding: 5px 0px;
+}
+
+.home_page .home_content_wrapper .singlePost .post_desc .post_title {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.1rem;
+}
+
+.home_page .home_content_wrapper .singlePost .post_header {
+  padding: 10px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.home_page .home_content_wrapper .singlePost .post_header .post_header_Details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.home_page .home_content_wrapper .singlePost .post_header .post_header_Details .poster_details {
+  padding-left: 10px;
+}
+
+.home_page .home_content_wrapper .singlePost .post_header .post_header_Details .poster_details h2 a {
+  text-decoration: none;
+  font-family: "Raleway", sans-serif;
+  color: #7b78ff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.home_page .home_content_wrapper .singlePost .post_header .post_header_Details .poster_details h2 a:hover {
+  color: #5855f3;
+}
+
+.home_page .home_content_wrapper .singlePost .post_header .post_header_Details .poster_details p {
+  font-family: "Mukta", sans-serif;
+}
+
+.home_page .home_content_wrapper .singlePost .postOptions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 10px 0px;
+}
+
+.home_page .home_content_wrapper .singlePost .postOptions div {
+  width: 49%;
+}
+
+.home_page .home_content_wrapper .singlePost .postOptions div button {
+  width: 100%;
+}
+
+.home_page .home_content_wrapper .singlePost .postOptions .likePost button {
+  background: #7b78ff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.home_page .home_content_wrapper .singlePost .postOptions .likePost button:hover {
+  background: #5855f3;
+}
+
+.home_page .home_content_wrapper .singlePost .postOptions .comment button {
+  background: #008cff;
+}
+
+.singlePostPage {
+  padding: 20px 0px;
+}
+
+.singlePostPage * {
+  color: #fff;
+}
+
+.singlePostPage .singlePostContent_wrapper {
+  padding: 20px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.singlePostPage .singlePostContent_wrapper .suggestedUsers {
+  width: 33%;
+  background: #3c4359;
+  padding: 10px;
+  border-radius: 3px;
+  -webkit-box-shadow: 1px 2px 5px #000;
+          box-shadow: 1px 2px 5px #000;
+}
+
+.singlePostPage .singlePostContent_wrapper .suggestedUsers .section_heading {
+  font-family: "Raleway", sans-serif;
+  color: #7b78ff;
+}
+
+.singlePostPage .singlePostContent_wrapper .suggestedUsers .suggestedUserWrapper {
+  padding: 20px 0px;
+}
+
+.singlePostPage .singlePostContent_wrapper .suggestedUsers .suggestedUserWrapper .showmoreText {
+  margin: 10px 0px;
+}
+
+.singlePostPage .singlePostContent_wrapper .suggestedUsers .suggestedUserWrapper .showmoreText a {
+  font-family: raleway;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.singlePostPage .singlePostContent_wrapper .suggestedUsers .suggestedUserWrapper .showmoreText a:hover {
+  color: #7b78ff;
+}
+
+.singlePostPage .singlePostContent_wrapper .suggestedUsers .suggestedUserWrapper .loadMessage {
+  font-family: Raleway;
+}
+
+.singlePostPage .singlePostContent_wrapper .suggestedUsers .suggestedUserWrapper .singleUser {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.singlePostPage .singlePostContent_wrapper .suggestedUsers .suggestedUserWrapper .singleUser .user_profile_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.singlePostPage .singlePostContent_wrapper .suggestedUsers .suggestedUserWrapper .singleUser .user_profile_header .use_details {
+  margin-left: 10px;
+}
+
+.singlePostPage .singlePostContent_wrapper .suggestedUsers .suggestedUserWrapper .singleUser .user_profile_header .use_details h2 a {
+  font-family: raleway;
+  color: #9492ff;
+}
+
+.singlePostPage .singlePostContent_wrapper .suggestedUsers .suggestedUserWrapper .singleUser .user_profile_header .use_details p {
+  font-family: Mukta;
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost {
+  background: #3c4359;
+  border-radius: 3px;
+  width: 65%;
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost .post_header {
+  background: #1a2634;
+  padding: 10px;
+  border-radius: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost .post_header .post_user_details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost .post_header .post_user_details .post_details {
+  margin-left: 10px;
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost .post_header .post_user_details .post_details h2 a {
+  text-decoration: none;
+  font-family: "Raleway", sans-serif;
+  color: #7b78ff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost .post_header .post_user_details .post_details h2 a:hover {
+  color: #5855f3;
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost .post_header .post_user_details .post_details p {
+  font-family: "Mukta", sans-serif;
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost .post_content {
+  padding: 10px 5px;
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost .post_content .post_desc {
+  white-space: pre-wrap;
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost .post_content .post_desc h2 {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.5rem;
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost .post_content .post_desc p {
+  font-family: "Poppins", sans-serif;
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost .post_content .postImg {
+  margin: 10px auto;
+  max-width: 100%;
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost .post_content .postImg img {
+  width: 100%;
+  border-radius: 3px;
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost .postOptions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 10px 0px;
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost .postOptions div {
+  width: 48%;
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost .postOptions div button {
+  width: 100%;
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost .postOptions .likePost button {
+  background: #7b78ff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost .postOptions .likePost button:hover {
+  background: #5855f3;
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost .postOptions .comment button {
+  background: #008cff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost .postOptions .comment button:hover {
+  background: #0076d6;
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost .postLikersList {
+  padding: 0px 10px;
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost .postLikersList .showLikers {
+  cursor: pointer;
+  font-family: "Mukta", sans-serif;
+  color: #9492ff;
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost .postLikersList .showLikers:hover .likerList {
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost .postLikersList .likerList {
+  position: absolute;
+  background: #1a2634;
+  color: #fff;
+  padding: 10px;
+  border-radius: 2px;
+  z-index: 1;
+  max-height: 200px;
+  overflow-y: scroll;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  min-width: 150px;
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost .postLikersList .likerList .singleLiker {
+  padding: 5px 0px;
+  cursor: default;
+}
+
+.singlePostPage .singlePostContent_wrapper .singlePost .postLikersList .likerList .singleLiker:hover * {
+  color: #7b78ff;
+}
+
+.singlePostPage .comment_section {
+  padding: 20px 0px;
+}
+
+.singlePostPage .comment_section .create_comment {
+  padding: 20px 0px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #7b78ff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.singlePostPage .comment_section .create_comment textarea {
+  width: 85%;
+  padding: 8px 6px 4px 6px;
+  border: none;
+  border-radius: 3px;
+  height: 36px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  color: #000;
+  resize: vertical;
+  border: 2px solid #fff;
+}
+
+.singlePostPage .comment_section .create_comment textarea:focus {
+  height: 150px;
+  border-color: #5855f3;
+}
+
+.singlePostPage .comment_section .create_comment button {
+  background: #7b78ff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 10%;
+}
+
+.singlePostPage .comment_section .create_comment button:hover {
+  background: #5855f3;
+}
+
+.singlePostPage .comment_section .allComment {
+  padding: 10px 0px;
+}
+
+.singlePostPage .comment_section .allComment .no_message {
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+  color: #7b78ff;
+}
+
+.singlePostPage .comment_section .allComment .singleComment {
+  padding: 10px 0px;
+  margin: 10px 0px;
+  border-bottom: 1px solid #7b78ff;
+}
+
+.singlePostPage .comment_section .allComment .singleComment .comment_headers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 10px 0px;
+}
+
+.singlePostPage .comment_section .allComment .singleComment .comment_headers .comment_details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.singlePostPage .comment_section .allComment .singleComment .comment_headers .comment_details .desc {
+  margin-left: 10px;
+}
+
+.singlePostPage .comment_section .allComment .singleComment .comment_headers .comment_details .desc h2 {
+  padding-bottom: 3px;
+}
+
+.singlePostPage .comment_section .allComment .singleComment .comment_headers .comment_details .desc h2 a {
+  text-decoration: none;
+  font-family: "Raleway", sans-serif;
+  color: #7b78ff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.singlePostPage .comment_section .allComment .singleComment .comment_headers .comment_details .desc h2 a:hover {
+  color: #5855f3;
+}
+
+.singlePostPage .comment_section .allComment .singleComment .comment_headers .comment_details .desc p {
+  font-family: "Mukta", sans-serif;
+}
+
+.singlePostPage .comment_section .allComment .singleComment .comment_body {
+  padding: 5px 0px;
+}
+
+.singlePostPage .comment_section .allComment .singleComment .comment_body p {
+  font-family: "Poppins", sans-serif;
+}
+
+.singlePostPage .comment_section .allComment .singleComment .reply_section {
+  padding: 5px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.singlePostPage .comment_section .allComment .singleComment .reply_section input {
+  border: none;
+  padding: 9.5px 10px;
+  border-radius: 2px;
+  color: #000;
+  margin-right: 5px;
+}
+
+.singlePostPage .comment_section .allComment .singleComment .reply_section button {
+  background: #7b78ff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.singlePostPage .comment_section .allComment .singleComment .reply_section button:hover {
+  background: #5855f3;
+}
+
+.singlePostPage .comment_section .allComment .singleComment .allReplies {
+  padding: 5px 0px;
+}
+
+.singlePostPage .comment_section .allComment .singleComment .allReplies summary {
+  padding: 5px 0px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  color: #7b78ff;
+}
+
+.singlePostPage .comment_section .allComment .singleComment .allReplies .empty {
+  font-family: "Raleway", sans-serif;
+}
+
+.singlePostPage .comment_section .allComment .singleComment .allReplies .singleReply {
+  padding: 10px 0px;
+}
+
+.singlePostPage .comment_section .allComment .singleComment .allReplies .singleReply .reply_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.singlePostPage .comment_section .allComment .singleComment .allReplies .singleReply .reply_header .reply_user_Details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.singlePostPage .comment_section .allComment .singleComment .allReplies .singleReply .reply_header .reply_user_Details .desc {
+  margin-left: 5px;
+}
+
+.singlePostPage .comment_section .allComment .singleComment .allReplies .singleReply .reply_header .reply_user_Details h2 a {
+  text-decoration: none;
+  font-family: "Raleway", sans-serif;
+  color: #7b78ff;
+}
+
+.singlePostPage .comment_section .allComment .singleComment .allReplies .singleReply .reply_header .reply_user_Details p {
+  font-size: 0.8rem;
+}
+
+.singlePostPage .comment_section .allComment .singleComment .allReplies .singleReply .replyBody {
+  padding: 5px 0px;
+}
+
+.singlePostPage .comment_section .allComment .singleComment .allReplies .singleReply .replyBody p {
+  font-family: "Poppins", sans-serif;
+  padding: 5px 0px;
+}
+
+.profile_page {
+  background: linear-gradient(180deg, #5855f3 150px, #0d1219 300px);
+}
+
+.profile_page * {
+  color: #fff;
+}
+
+.profile_page .profile_page_content_wrapper {
+  padding: 30px 0px;
+}
+
+.profile_page .profile_page_content_wrapper .profile_header {
+  border-radius: 5px;
+  background: #1a2634;
+  border: none;
+  padding: 20px 0px;
+}
+
+.profile_page .profile_page_content_wrapper .profile_header legend {
+  text-align: center;
+}
+
+.profile_page .profile_page_content_wrapper .profile_header legend img {
+  width: 100%;
+  border: 3px solid #5855f3;
+  border-radius: 100%;
+}
+
+.profile_page .profile_page_content_wrapper .profile_header .profile_intro {
+  text-align: center;
+  padding: 10px;
+}
+
+.profile_page .profile_page_content_wrapper .profile_header .profile_intro h1 {
+  padding-bottom: 5px;
+  font-family: "Raleway", sans-serif;
+}
+
+.profile_page .profile_page_content_wrapper .profile_header .profile_intro p {
+  font-family: "Mukta", sans-serif;
+}
+
+.profile_page .profile_page_content_wrapper .profile_header .profile_intro p:nth-child(3) {
+  padding: 5px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.profile_page .profile_page_content_wrapper .profile_header .profile_intro p:nth-child(3) div {
+  margin: 0px 10px;
+  color: #00ff62;
+  font-family: "Mukta", sans-serif;
+  word-spacing: 5px;
+}
+
+.profile_page .profile_page_content_wrapper .profile_header .primary_infos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 20px 0px;
+}
+
+.profile_page .profile_page_content_wrapper .profile_header .primary_infos .single_info {
+  margin: 0px 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile_page .profile_page_content_wrapper .profile_header .primary_infos .single_info svg {
+  fill: #7b78ff;
+}
+
+.profile_page .profile_page_content_wrapper .profile_header .primary_infos .single_info span {
+  padding: 0px 8px;
+  font-family: "Mukta", sans-serif;
+}
+
+.profile_page .profile_page_content_wrapper .profile_header .primary_infos .single_info span span {
+  color: #00ff62;
+}
+
+.profile_page .profile_page_content_wrapper .profile_header .profile_options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.profile_page .profile_page_content_wrapper .profile_header .profile_options .singleOption {
+  margin: 0px 10px;
+}
+
+.profile_page .profile_page_content_wrapper .profile_header .profile_options .singleOption button {
+  background: #7b78ff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  padding: 6px 15px;
+}
+
+.profile_page .profile_page_content_wrapper .profile_header .profile_options .singleOption button a {
+  text-decoration: none;
+}
+
+.profile_page .profile_page_content_wrapper .profile_header .profile_options .singleOption button:hover {
+  background: #5855f3;
+}
+
+.profile_page .profile_page_content_wrapper .profile_header .profile_links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding-bottom: 15px;
+}
+
+.profile_page .profile_page_content_wrapper .profile_header .profile_links .singleLink {
+  margin: 0px 10px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.profile_page .profile_page_content_wrapper .profile_header .profile_links .singleLink:hover svg {
+  fill: #5855f3;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content {
+  margin: 20px 0px;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userInfoAndActivity {
+  width: 35%;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userInfoAndActivity .singleInfo {
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #191e25;
+  border-radius: 3px;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userInfoAndActivity .singleInfo h2 {
+  font-family: "Raleway", sans-serif;
+  color: #7b78ff;
+  padding: 5px 0px;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userInfoAndActivity .singleInfo p {
+  font-family: "Mukta", sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px 0px;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userInfoAndActivity .singleInfo p div {
+  padding-right: 5px;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userInfoAndActivity .singleInfo p div svg {
+  fill: #00ff62;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts {
+  width: 64%;
+  border-radius: 5px;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-7,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-2,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts .tabContainer {
+  width: 100%;
+  background: #191e25;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-7 header,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-2 header,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts .tabContainer header {
+  background: #1a2634;
+  z-index: 1;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-7 .follower_content_wrapper,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-2 .follower_content_wrapper,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts .tabContainer .follower_content_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-7 .follower_content_wrapper .singleFollower,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-2 .follower_content_wrapper .singleFollower,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts .tabContainer .follower_content_wrapper .singleFollower {
+  width: 260px;
+  background: #3c4359;
+  padding: 10px;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 2px 5px #000;
+          box-shadow: 1px 2px 5px #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 8px;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-7 .follower_content_wrapper .singleFollower .followerInfo h2 a,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-2 .follower_content_wrapper .singleFollower .followerInfo h2 a,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts .tabContainer .follower_content_wrapper .singleFollower .followerInfo h2 a {
+  text-decoration: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-family: "Raleway", sans-serif;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-7 .follower_content_wrapper .singleFollower .followerInfo h2 a:hover,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-2 .follower_content_wrapper .singleFollower .followerInfo h2 a:hover,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts .tabContainer .follower_content_wrapper .singleFollower .followerInfo h2 a:hover {
+  color: #7b78ff;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-7 .follower_content_wrapper .singleFollower .followerInfo p,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-2 .follower_content_wrapper .singleFollower .followerInfo p,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts .tabContainer .follower_content_wrapper .singleFollower .followerInfo p {
+  font-family: "Mukta", sans-serif;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-7 .post_wrapper,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-2 .post_wrapper,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts .tabContainer .post_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-7 .post_wrapper .singlepost,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-2 .post_wrapper .singlepost,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts .tabContainer .post_wrapper .singlepost {
+  width: 100%;
+  background: #3c4359;
+  padding: 7px;
+  border-radius: 3px;
+  -webkit-box-shadow: 1px 2px 5px #000;
+          box-shadow: 1px 2px 5px #000;
+  margin: 10px 0px;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-7 .post_wrapper .singlepost .postHeader,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-2 .post_wrapper .singlepost .postHeader,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts .tabContainer .post_wrapper .singlepost .postHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 10px 0px;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-7 .post_wrapper .singlepost .postHeader .postAvatar,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-2 .post_wrapper .singlepost .postHeader .postAvatar,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts .tabContainer .post_wrapper .singlepost .postHeader .postAvatar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-7 .post_wrapper .singlepost .postHeader .postAvatar .postInfo,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-2 .post_wrapper .singlepost .postHeader .postAvatar .postInfo,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts .tabContainer .post_wrapper .singlepost .postHeader .postAvatar .postInfo {
+  margin-left: 10px;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-7 .post_wrapper .singlepost .postHeader .postAvatar .postInfo h2 a,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-2 .post_wrapper .singlepost .postHeader .postAvatar .postInfo h2 a,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts .tabContainer .post_wrapper .singlepost .postHeader .postAvatar .postInfo h2 a {
+  text-decoration: none;
+  font-family: "Raleway", sans-serif;
+  color: #7b78ff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-7 .post_wrapper .singlepost .postHeader .postAvatar .postInfo h2 a:hover,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-2 .post_wrapper .singlepost .postHeader .postAvatar .postInfo h2 a:hover,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts .tabContainer .post_wrapper .singlepost .postHeader .postAvatar .postInfo h2 a:hover {
+  color: #5855f3;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-7 .post_wrapper .singlepost .postHeader .postAvatar .postInfo p,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-2 .post_wrapper .singlepost .postHeader .postAvatar .postInfo p,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts .tabContainer .post_wrapper .singlepost .postHeader .postAvatar .postInfo p {
+  font-family: "Mukta", sans-serif;
+  font-size: 0.8rem;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-7 .post_wrapper .singlepost .postImg,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-2 .post_wrapper .singlepost .postImg,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts .tabContainer .post_wrapper .singlepost .postImg {
+  width: 100%;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-7 .post_wrapper .singlepost .postImg img,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-2 .post_wrapper .singlepost .postImg img,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts .tabContainer .post_wrapper .singlepost .postImg img {
+  width: 100%;
+  border-radius: 3px;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-7 .post_wrapper .singlepost .postTitle,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-2 .post_wrapper .singlepost .postTitle,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts .tabContainer .post_wrapper .singlepost .postTitle {
+  font-family: "Raleway", sans-serif;
+  padding: 5px 0px;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-7 .post_wrapper .singlepost .visitPostButton .likeCount,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-2 .post_wrapper .singlepost .visitPostButton .likeCount,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts .tabContainer .post_wrapper .singlepost .visitPostButton .likeCount {
+  padding: 5px 0px;
+  font-size: 1.1rem;
+  font-family: mukta;
+  margin-left: 10px;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-7 .post_wrapper .singlepost .visitPostButton button,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-2 .post_wrapper .singlepost .visitPostButton button,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts .tabContainer .post_wrapper .singlepost .visitPostButton button {
+  background: #7b78ff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  padding: 5px 20px;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-7 .post_wrapper .singlepost .visitPostButton button:hover,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-2 .post_wrapper .singlepost .visitPostButton button:hover,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts .tabContainer .post_wrapper .singlepost .visitPostButton button:hover {
+  background: #5855f3;
+}
+
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-7 .no_message,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts div.makeStyles-root-2 .no_message,
+.profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts .tabContainer .no_message {
+  text-align: center;
+  font-weight: 100;
+  font-family: "Raleway", sans-serif;
+}
+
+.settingsPage {
+  padding: 30px 0px;
+}
+
+.settingsPage * {
+  color: #fff;
+}
+
+.settingsPage .settings_content_wrapper {
+  width: 100%;
+  background: #1a2634;
+  border-radius: 5px;
+  padding: 20px 10px;
+  margin-bottom: 20px;
+}
+
+.settingsPage .settings_content_wrapper .user_avatar {
+  width: 200px;
+  margin: 20px auto;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.settingsPage .settings_content_wrapper .user_avatar img {
+  border-radius: 100%;
+}
+
+.settingsPage .settings_content_wrapper .buttonContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.settingsPage .settings_content_wrapper .buttonContainer .fileUploadField {
+  width: 49%;
+  margin: 10px 0px;
+}
+
+.settingsPage .settings_content_wrapper .buttonContainer .fileUploadField .MuiButton-root {
+  width: 100%;
+  background: #7b78ff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  text-transform: capitalize;
+}
+
+.settingsPage .settings_content_wrapper .buttonContainer .fileUploadField .MuiButton-root:hover {
+  background: #5855f3;
+}
+
+.settingsPage .settings_content_wrapper .buttonContainer .singleField {
+  width: 49%;
+}
+
+.settingsPage .settings_content_wrapper .buttonContainer .singleField button {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.settingsPage .settings_content_wrapper .buttonContainer .singleField button span {
+  padding: 0px 5px;
+}
+
+.settingsPage .settings_content_wrapper .buttonContainer .singleField button:hover {
+  background: #5855f3;
+}
+
+.settingsPage .settings_content_wrapper .section_heading {
+  color: #7b78ff;
+  margin-bottom: 20px;
+}
+
+.settingsPage .settings_content_wrapper .input_s_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.settingsPage .settings_content_wrapper .input_s_wrapper .singleInput {
+  width: 300px;
+  margin: 7px 2px;
+}
+
+.settingsPage .settings_content_wrapper .input_s_wrapper .singleInput .inputLabelText {
+  padding: 5px 0px;
+  font-family: "Mukta", sans-serif;
+}
+
+.settingsPage .settings_content_wrapper .input_s_wrapper .singleInput input,
+.settingsPage .settings_content_wrapper .input_s_wrapper .singleInput select {
+  width: 100%;
+  color: #000;
+  padding: 10px 10px;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  margin: 3px 0px;
+  -webkit-box-shadow: 2px 2px 3px #7b78ff;
+          box-shadow: 2px 2px 3px #7b78ff;
+}
+
+.settingsPage .settings_content_wrapper .input_s_wrapper .singleInput option {
+  color: #000;
+}
+
+.settingsPage .settings_content_wrapper .input_s_wrapper .singleInput button {
+  width: 100%;
+  background: #7b78ff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.settingsPage .settings_content_wrapper .input_s_wrapper .singleInput button:hover {
+  background: #5855f3;
+}
+
+.settingsPage .settings_content_wrapper .deleteAccount h2 {
+  font-family: "Raleway", sans-serif;
+  color: #7b78ff;
+}
+
+.settingsPage .settings_content_wrapper .deleteAccount button {
+  background: red;
+  padding: 6px 20px;
+  margin: 20px 0px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.settingsPage .settings_content_wrapper .deleteAccount button:hover {
+  background: #b60000;
+}
+
+.usersPage {
+  padding: 20px 0px;
+}
+
+.usersPage * {
+  color: #fff;
+}
+
+.usersPage .heading {
+  text-align: center;
+  font-family: "Mukta", sans-serif;
+  text-shadow: 1px 2px 10px #000;
+  margin-bottom: 30px;
+}
+
+.usersPage .searchUser {
+  margin-bottom: 30px;
+}
+
+.usersPage .searchUser .inputField {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.usersPage .searchUser .inputField input {
+  background: #fff;
+  border-radius: 5px;
+}
+
+.usersPage .searchUser .inputField button {
+  background: #7b78ff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  margin: 0px 10px;
+  padding: 16px 20px;
+}
+
+.usersPage .searchUser .inputField button:hover {
+  background: #5855f3;
+}
+
+.usersPage .users_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.usersPage .users_wrapper .singleuser {
+  width: 300px;
+  background: #1a2634;
+  -webkit-box-shadow: 1px 2px 5px #000;
+          box-shadow: 1px 2px 5px #000;
+  margin: 8px;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.usersPage .users_wrapper .singleuser:hover {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+}
+
+.usersPage .users_wrapper .singleuser .profileAvatar {
+  width: 150px;
+  height: 150px;
+  margin: 5px auto;
+}
+
+.usersPage .users_wrapper .singleuser .profileAvatar img {
+  width: 100%;
+  border-radius: 100%;
+  border: 2px solid #7b78ff;
+}
+
+.usersPage .users_wrapper .singleuser .user_intro {
+  text-align: center;
+  padding: 5px 0px;
+}
+
+.usersPage .users_wrapper .singleuser .user_intro h2 {
+  padding-bottom: 5px;
+}
+
+.usersPage .users_wrapper .singleuser .user_intro h2 a {
+  text-decoration: none;
+  font-family: "Raleway", sans-serif;
+  color: #7b78ff;
+}
+
+.usersPage .users_wrapper .singleuser .user_intro p {
+  font-family: "Mukta", sans-serif;
+}
+
+.EditPostPage .editPostContentWrapper {
+  padding: 20px 0px;
+}
+
+.EditPostPage .editPostContentWrapper .heading {
+  text-align: center;
+  color: #7b78ff;
+  font-family: "Raleway", sans-serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.EditPostPage .editPostContentWrapper .singleField {
+  width: 100%;
+  margin: 10px 0px;
+}
+
+.EditPostPage .editPostContentWrapper .singleField input,
+.EditPostPage .editPostContentWrapper .singleField textarea,
+.EditPostPage .editPostContentWrapper .singleField img {
+  width: 100%;
+  border-radius: 3px;
+}
+
+.EditPostPage .editPostContentWrapper .singleField input,
+.EditPostPage .editPostContentWrapper .singleField textarea {
+  padding: 15px 10px;
+  outline: none;
+  border: none;
+  resize: vertical;
+}
+
+.notfoundPage {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.notfoundPage * {
+  color: #fff;
+  font-family: "Poppins";
+  text-align: center;
+}
+
+.notfoundPage p {
+  color: #ff1000;
+}
+
+.notfoundPage .ErrorImg {
+  width: 400px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.notfoundPage .ErrorImg img {
+  width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 750px;
+  }
+  .registration_page .content_wrapper .side_infos {
+    width: 47%;
+    margin: 5px;
+  }
+  .registration_page .content_wrapper .regitration_form {
+    width: 47%;
+    margin: 5px;
+  }
+  .settingsPage .settings_content_wrapper .input_s_wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+.createPostPage * {
+  color: #fff;
+}
+
+.createPostPage .Post_content_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 20px 0px;
+}
+
+.createPostPage .Post_content_wrapper .post_rules {
+  width: 330px;
+  padding: 10px;
+  background: #1a2634;
+  border-radius: 5px;
+}
+
+.createPostPage .Post_content_wrapper .post_rules h2 {
+  font-family: "Raleway", sans-serif;
+  color: #7b78ff;
+}
+
+.createPostPage .Post_content_wrapper .post_rules ol {
+  list-style: inside none;
+  padding: 10px 0px;
+}
+
+.createPostPage .Post_content_wrapper .post_rules ol li {
+  padding: 5px 0px;
+  font-family: "Mukta", sans-serif;
+}
+
+.createPostPage .Post_content_wrapper .post_creation_box {
+  width: 600px;
+  padding: 10px;
+  background: #1a2634;
+  border-radius: 5px;
+}
+
+.createPostPage .Post_content_wrapper .post_creation_box .heading {
+  font-family: "Raleway", sans-serif;
+}
+
+.createPostPage .Post_content_wrapper .post_creation_box .heading span {
+  color: #7b78ff;
+}
+
+.createPostPage .Post_content_wrapper .post_creation_box .postform {
+  margin: 20px 0px;
+}
+
+.createPostPage .Post_content_wrapper .post_creation_box .postform .singleField {
+  width: 100%;
+  margin: 10px 0px;
+}
+
+.createPostPage .Post_content_wrapper .post_creation_box .postform .singleField input,
+.createPostPage .Post_content_wrapper .post_creation_box .postform .singleField textarea,
+.createPostPage .Post_content_wrapper .post_creation_box .postform .singleField button,
+.createPostPage .Post_content_wrapper .post_creation_box .postform .singleField span,
+.createPostPage .Post_content_wrapper .post_creation_box .postform .singleField img {
+  width: 100%;
+}
+
+.createPostPage .Post_content_wrapper .post_creation_box .postform .singleField input,
+.createPostPage .Post_content_wrapper .post_creation_box .postform .singleField textarea {
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  color: #000;
+  resize: vertical;
+}
+
+@media screen and (max-width: 768px) {
+  * {
+    cursor: default !important;
+  }
+  .container {
+    width: 92%;
+  }
+  nav .bars {
+    display: block;
+  }
+  nav .nav_link {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 230px;
+    height: 100vh;
+    background: #1a2634;
+    -webkit-transform: translate(-100%);
+            transform: translate(-100%);
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  nav .nav_link li button .placeholderText {
+    display: block;
+    margin: 0px 5px;
+  }
+  .registration_page {
+    padding: 30px 0px;
+  }
+  .registration_page .content_wrapper .side_infos {
+    margin: 10px 0px;
+    width: 100%;
+  }
+  .registration_page .content_wrapper .regitration_form {
+    margin: 10px 0px;
+    width: 100%;
+    padding: 20px 12px;
+  }
+  .loginPage {
+    padding: 20px 0px;
+  }
+  .loginPage .loginForm {
+    width: 100%;
+    padding: 15px;
+  }
+  .profile_page .profile_page_content_wrapper .profile_header legend {
+    width: 150px;
+    height: 150px;
+  }
+  .profile_page .profile_page_content_wrapper .profile_header .primary_infos {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .profile_page .profile_page_content_wrapper .profile_header .primary_infos .single_info {
+    margin: 5px 0px;
+    padding-left: 10px;
+    width: 100%;
+  }
+  .profile_page .profile_page_content_wrapper .profile_header .primary_infos .single_info span {
+    padding: 0px 6px;
+  }
+  .profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userInfoAndActivity {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .profile_page .profile_page_content_wrapper .profile_content .profile_content_wrapper .userPosts {
+    width: 100%;
+  }
+  .settingsPage .settings_content_wrapper .buttonContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .settingsPage .settings_content_wrapper .buttonContainer .fileUploadField {
+    width: 100%;
+  }
+  .settingsPage .settings_content_wrapper .buttonContainer .singleField {
+    width: 100%;
+  }
+  .createPostPage .Post_content_wrapper .post_rules {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  .createPostPage .Post_content_wrapper .post_creation_box {
+    width: 100%;
+  }
+  .singlePostPage .singlePostContent_wrapper .suggestedUsers {
+    display: none;
+  }
+  .singlePostPage .singlePostContent_wrapper .singlePost {
+    width: 100%;
+  }
+  .singlePostPage .comment_section .create_comment textarea {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  .singlePostPage .comment_section .create_comment button {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=style.css.map */
