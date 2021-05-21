@@ -39,7 +39,7 @@ const Post = ({ post }) => {
           style={{
             background: post.imgUrl
               ? `url(${post.imgUrl})`
-              : "url('https://res.cloudinary.com/devr/image/upload/v1619511565/sgxn344sf6uremgcsgwi.jpg')",
+              : "url('https://res.cloudinary.com/devr/image/upload/v1621575911/ewn2utffbn3uzuxjnpbj.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",

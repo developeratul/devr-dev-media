@@ -211,15 +211,8 @@ router.get("/getReplies/:id", async (req, res) => {
 // for registering a user's account
 router.post("/register", async (req, res) => {
   try {
-    const {
-      name,
-      email,
-      password,
-      gender,
-      country,
-      profession,
-      conPass,
-    } = req.body;
+    const { name, email, password, gender, country, profession, conPass } =
+      req.body;
 
     if (
       !name ||
