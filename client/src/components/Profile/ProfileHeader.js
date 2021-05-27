@@ -118,7 +118,7 @@ const ProfileHeader = ({ user, authUser, id }) => {
               <CakeOutlinedIcon />
             </div>
             <span>
-              Memeber since:<span>{user.date}</span>
+              Member since:<span>{user.date}</span>
             </span>
           </div>
           <div className="single_info">

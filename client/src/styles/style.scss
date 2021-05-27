@@ -290,7 +290,7 @@ body {
 // the nav bar
 nav {
   @include flexAround();
-  padding: 5px 0px;
+  padding: 10px 0px;
   background: $secondaryBg;
   position: sticky;
   top: 0;
@@ -655,7 +655,7 @@ nav {
 
   .singlePostContent_wrapper {
     padding: 20px 0px;
-    @include flexBetween;
+    @include flexBetween();
     align-items: flex-start;
 
     .suggestedUsers {
@@ -1595,7 +1595,7 @@ nav {
     cursor: default !important;
   }
   .container {
-    width: 92%;
+    width: 95%;
   }
 
   // the nav bar / app bar
@@ -1727,6 +1727,7 @@ nav {
       }
       .singlePost {
         width: 100%;
+        margin: 10px 0;
       }
     }
 

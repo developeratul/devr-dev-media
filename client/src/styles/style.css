@@ -393,7 +393,7 @@ nav {
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 5px 0px;
+  padding: 10px 0px;
   background: #1a2634;
   position: -webkit-sticky;
   position: sticky;
@@ -2258,7 +2258,7 @@ nav .toogle .line3 {
     cursor: default !important;
   }
   .container {
-    width: 92%;
+    width: 95%;
   }
   nav .bars {
     display: block;
@@ -2373,6 +2373,7 @@ nav .toogle .line3 {
   }
   .singlePostPage .singlePostContent_wrapper .singlePost {
     width: 100%;
+    margin: 10px 0;
   }
   .singlePostPage .comment_section .create_comment textarea {
     width: 100%;

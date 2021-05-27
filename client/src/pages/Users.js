@@ -25,11 +25,12 @@ const Users = () => {
 
   const [users, setUsers] = useState([]);
   const [userId, setUserId] = useState("");
+  const [dataLimit, setDataLimit] = useState(9);
 
   const [searchResult, setSearchResult] = useState({});
 
-  // for getting the data's of the authenticated user
-  // and also for checking if the user is authentcated
+  // for getting the data of the authenticated user
+  // and also for checking if the user is authenticated
   const checkAuth = async () => {
     try {
       const res = await fetch("/auth", {
@@ -43,7 +44,6 @@ const Users = () => {
 
       const body = await res.json();
 
-      setLoading(false);
       setAuthUser(body);
 
       if (!body._id) {
@@ -56,17 +56,18 @@ const Users = () => {
   };
 
   // for getting all the user data's
-  const getUserdata = async () => {
+  const getUserData = async () => {
     try {
-      const res = await fetch("/users", {
+      const res = await fetch(`/users?limit=${dataLimit}`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
-
       const body = await res.json();
 
-      setUsers(body);
-      setLoading(false);
+      if (res.status === 200) {
+        setUsers(body);
+        setLoading(false);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -97,10 +98,22 @@ const Users = () => {
     }
   };
 
+  window.addEventListener("scroll", () => {
+    const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+
+    if (scrollTop + clientHeight >= scrollHeight) {
+      setDataLimit(dataLimit + 9);
+    }
+  });
+
+  useEffect(() => {
+    getUserData();
+  }, [dataLimit]);
+
   useEffect(() => {
     document.title = "Dev Media / Users";
     checkAuth();
-    getUserdata();
+    window.scrollTo(0, 0);
   }, []);
   return (
     <>

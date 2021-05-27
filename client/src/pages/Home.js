@@ -11,6 +11,7 @@ const Home = () => {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState([]);
+  const [postLimit, setPostLimit] = useState(6);
 
   const history = useHistory();
 
@@ -48,12 +49,15 @@ const Home = () => {
   const fetchFollowingPost = async () => {
     try {
       if (!loading) {
-        const res = await fetch(`/followingPost/${user.followings}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const res = await fetch(
+          `/followingPost/${user.followings}?limit=${postLimit}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         const body = await res.json();
 
@@ -77,11 +81,26 @@ const Home = () => {
     }
   };
 
+  window.addEventListener("scroll", () => {
+    const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+
+    if (scrollTop + clientHeight >= scrollHeight) {
+      setPostLimit(postLimit + 9);
+    }
+  });
+
   useEffect(() => {
     checkAuth();
-    fetchFollowingPost();
     document.title = "Dev Media / Home";
   }, [loading]);
+
+  useEffect(() => {
+    fetchFollowingPost();
+  }, [postLimit, loading]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
@@ -94,11 +113,11 @@ const Home = () => {
             <div className="home_content_wrapper">
               {/*  */}
 
-              {posts.length === 0 || !posts ? (
+              {posts.length === 0 || (!posts && !loading) ? (
                 <Welcome user={user} />
               ) : (
                 posts.map((post, index) => {
-                  return <Post key={index} post={post} />;
+                  return <Post key={index} post={post} user={user} />;
                 })
               )}
 

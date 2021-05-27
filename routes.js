@@ -39,7 +39,7 @@ router.get("/logout", auth, async (req, res) => {
   }
 });
 
-// for indivisual users profile page data
+// for individual users profile page data
 router.get("/profile/:id", async (req, res) => {
   try {
     const id = req.params.id;
@@ -52,10 +52,11 @@ router.get("/profile/:id", async (req, res) => {
   }
 });
 
-// for getting all the user data's
+// for getting all the user data
 router.get("/users", async (req, res) => {
   try {
-    const users = await Users.find();
+    const { limit } = req.query;
+    const users = await Users.find().limit(Number(limit));
 
     res.status(200).send(users);
   } catch (err) {
@@ -121,8 +122,11 @@ router.get("/getAllFollowingData/:ids", async (req, res) => {
 router.get("/posts/:id", async (req, res) => {
   try {
     const id = req.params.id;
+    const { limit } = req.query;
 
-    const posts = await Posts.find({ userId: id }).sort({ date: -1 });
+    const posts = await Posts.find({ userId: id })
+      .sort({ date: -1 })
+      .limit(Number(limit));
 
     res.status(200).send(posts);
   } catch (err) {
@@ -150,8 +154,11 @@ router.get("/singlePost/:id", async (req, res) => {
 router.get("/followingPost/:ids", async (req, res) => {
   try {
     const ids = req.params.ids.split(",");
+    const { limit } = req.query;
 
-    const posts = await Posts.find({ userId: { $in: ids } }).sort({ date: -1 });
+    const posts = await Posts.find({ userId: { $in: ids } })
+      .sort({ date: -1 })
+      .limit(Number(limit));
     const users = await Users.find({ _id: { $in: ids } });
 
     res.status(200).send({ posts, users });
@@ -308,7 +315,7 @@ router.post("/login", async (req, res) => {
       res.status(403).json({ err: "Your login details are invalid" });
     }
   } catch (err) {
-    res.status(400).json({ err: "Invalid credencials" });
+    res.status(400).json({ err: "Invalid credentials" });
   }
 });
 
@@ -336,7 +343,7 @@ router.post("/post", async (req, res) => {
       });
 
       await post.save();
-      res.status(200).json({ success: "Posted Successfuly" });
+      res.status(200).json({ success: "Posted Successfully" });
     } else if (!imgUrl || imgUrl === "") {
       const post = new Posts({
         title,
@@ -348,7 +355,7 @@ router.post("/post", async (req, res) => {
       });
 
       await post.save();
-      res.status(200).json({ success: "Posted Successfuly" });
+      res.status(200).json({ success: "Posted Successfully" });
     }
   } catch (err) {
     res.status(400).send(err);
@@ -468,7 +475,7 @@ router.put("/updateProfileInfo", async (req, res) => {
 
       user.save();
 
-      res.status(200).json({ success: "Successfuly Updated" });
+      res.status(200).json({ success: "Successfully Updated" });
     });
   } catch (err) {
     res.status(403).err(err);
@@ -510,7 +517,7 @@ router.put("/followUser", async (req, res) => {
   }
 });
 
-// for unfollowing a user
+// for unFollowing a user
 router.put("/unfollowUser", async (req, res) => {
   try {
     const authUser = req.body.authUser; // this guy is following some one
@@ -601,7 +608,7 @@ router.put("/like", async (req, res) => {
   }
 });
 
-// for unliking a post
+// for unLiking a post
 router.put("/unlike", async (req, res) => {
   try {
     const authUserId = req.body.userId;
@@ -640,7 +647,8 @@ router.delete("/deletePost/:id", async (req, res) => {
   }
 });
 
-// for deleting a commet
+// for deleting a comment
+// ! spelling wrong
 router.delete("/deleteCommet/:id", async (req, res) => {
   try {
     const id = req.params.id;

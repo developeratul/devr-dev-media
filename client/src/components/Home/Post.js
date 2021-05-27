@@ -1,12 +1,26 @@
 import { Avatar, Button } from "@material-ui/core";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 // icon
 import ThumbUpAltOutlinedIcon from "@material-ui/icons/ThumbUpAltOutlined";
 import MessageOutlinedIcon from "@material-ui/icons/MessageOutlined";
 
-const Post = ({ post }) => {
+const Post = ({ post, user }) => {
+  const [hasLiked, setHasLiked] = useState(false);
+
+  const checkLikeStatus = () => {
+    for (let i = 0; i < post.likers.length; i++) {
+      if (post.likers[i].liker === user._id) {
+        setHasLiked(true);
+      }
+    }
+  };
+
+  useEffect(() => {
+    checkLikeStatus();
+  }, []);
+
   return (
     <div className="singlePost">
       {/*  */}
@@ -50,8 +64,9 @@ const Post = ({ post }) => {
       <div className="postOptions">
         <div className="likePost">
           <Link to={`/post/${post._id}`}>
-            <Button>
-              <ThumbUpAltOutlinedIcon /> ({post.likers.length}) Like
+            <Button style={{ background: hasLiked && "#ff00b3" }}>
+              <ThumbUpAltOutlinedIcon /> ({post.likers.length}){" "}
+              {hasLiked ? "Liked" : "Like"}
             </Button>
           </Link>
         </div>

@@ -10,9 +10,9 @@ const Posts = ({ TabPanel, dir, value, posts, authUser, user }) => {
         <h1 className="no_message">No Posts Yet</h1>
       ) : (
         <div className="post_wrapper">
-          {posts.map((post) => {
+          {posts.map((post, index) => {
             return (
-              <div className="singlepost">
+              <div className="singlepost" key={index}>
                 <div className="postHeader">
                   <div className="postAvatar">
                     <Avatar src={user.photoUrl} alt={user.name} />

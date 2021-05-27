@@ -13,7 +13,7 @@ import EditPost from "./pages/EditPost";
 import SinglePost from "./pages/SinglePost";
 import Error from "./pages/Error";
 
-// All the user data's are fetched in indivisual files
+// All the user data's are fetched in individual files
 // Cause I don't need that globally
 // for example checkout Home.js
 

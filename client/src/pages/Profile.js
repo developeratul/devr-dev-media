@@ -35,8 +35,8 @@ const Profile = () => {
 
       const body = await res.json();
 
-      setLoading(false);
       setAuthUser(body);
+      setLoading(false);
 
       if (!body._id) {
         history.push("/login");
@@ -91,12 +91,7 @@ const Profile = () => {
               <div className="profile_page_content_wrapper">
                 {/*  */}
 
-                <ProfileHeader
-                  loading={loading}
-                  user={user}
-                  authUser={authUser}
-                  id={id}
-                />
+                <ProfileHeader user={user} authUser={authUser} id={id} />
                 <ProfileContent authUser={authUser} id={id} user={user} />
 
                 {/*  */}

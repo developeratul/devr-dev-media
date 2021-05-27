@@ -66,7 +66,7 @@ export default function FullWidthTabs({ user, id, posts, authUser }) {
     setValue(index);
   };
 
-  const fetchDataFollowersData = async () => {
+  const fetchFollowerData = async () => {
     try {
       const res = await fetch(`/getAllFollowerData/${user.followers}`, {
         method: "GET",
@@ -101,7 +101,7 @@ export default function FullWidthTabs({ user, id, posts, authUser }) {
   };
 
   useEffect(() => {
-    fetchDataFollowersData();
+    fetchFollowerData();
     fetchFollowingData();
   }, [id, user]);
 

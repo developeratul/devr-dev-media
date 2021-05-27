@@ -8,12 +8,13 @@ import GroupAddIcon from "@material-ui/icons/GroupAdd";
 
 const ProfileContent = ({ user, id, authUser }) => {
   const [posts, setPosts] = useState([]);
+  const [postLimit, setPostLimit] = useState(3);
 
   // for fetching all the posts
   // posted by the current user
   const fetchUserPosts = async () => {
     try {
-      const res = await fetch(`/posts/${id}`, {
+      const res = await fetch(`/posts/${id}?limit=${postLimit}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -28,9 +29,17 @@ const ProfileContent = ({ user, id, authUser }) => {
     }
   };
 
+  window.addEventListener("scroll", () => {
+    const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+
+    if (scrollTop + clientHeight >= scrollHeight) {
+      setPostLimit(postLimit + 3);
+    }
+  });
+
   useEffect(() => {
     fetchUserPosts();
-  }, [user, id]);
+  }, [user, id, postLimit]);
 
   return (
     <div className="profile_content">
