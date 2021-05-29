@@ -13,7 +13,7 @@ const Comments = require("./models/comments");
 const Reply = require("./models/reply");
 
 router.use(express.json({ limit: "20mb" }));
-router.use(express.urlencoded({ extended: false, limit: "20mb" }));
+router.use(express.urlencoded({ extended: true, limit: "20mb" }));
 router.use(cookieParser());
 router.use(cors());
 
@@ -40,7 +40,7 @@ router.get("/logout", auth, async (req, res) => {
 });
 
 // for individual users profile page data
-router.get("/profile/:id", async (req, res) => {
+router.get("/apiProfile/:id", async (req, res) => {
   try {
     const id = req.params.id;
 

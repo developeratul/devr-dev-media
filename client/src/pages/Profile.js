@@ -51,7 +51,7 @@ const Profile = () => {
   // not for the auth user
   const fetchUserData = async () => {
     try {
-      const res = await fetch(`/profile/${id}`, {
+      const res = await fetch(`/apiProfile/${id}`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
