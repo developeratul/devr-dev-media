@@ -53,7 +53,7 @@ router.get("/apiProfile/:id", async (req, res) => {
 });
 
 // for getting all the user data
-router.get("/users", async (req, res) => {
+router.get("/getUsers", async (req, res) => {
   try {
     const { limit } = req.query;
     const users = await Users.find().limit(Number(limit));
@@ -76,7 +76,7 @@ router.get("/suggestUser", async (req, res) => {
 });
 
 // for getting a single user data in the user's page after search
-router.get("/user/:id", async (req, res) => {
+router.get("/getUsers/:id", async (req, res) => {
   try {
     const id = req.params.id;
 

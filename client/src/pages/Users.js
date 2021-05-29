@@ -58,7 +58,7 @@ const Users = () => {
   // for getting all the user data's
   const getUserData = async () => {
     try {
-      const res = await fetch(`/users?limit=${dataLimit}`, {
+      const res = await fetch(`/getUsers?limit=${dataLimit}`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
@@ -79,7 +79,7 @@ const Users = () => {
 
   const SearchSingleUser = async () => {
     try {
-      const res = await fetch(`/user/${userId}`, {
+      const res = await fetch(`/getUsers/${userId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
