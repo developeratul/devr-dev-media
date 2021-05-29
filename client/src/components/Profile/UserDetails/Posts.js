@@ -6,7 +6,7 @@ import AuthUserOptions from "../Posts/AuthUserOptions";
 const Posts = ({ TabPanel, dir, value, posts, authUser, user }) => {
   return (
     <TabPanel value={value} index={0} dir={dir}>
-      {posts.length === 0 ? (
+      {posts.length <= 0 ? (
         <h1 className="no_message">No Posts Yet</h1>
       ) : (
         <div className="post_wrapper">

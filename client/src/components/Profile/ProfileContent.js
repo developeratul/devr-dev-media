@@ -8,6 +8,7 @@ import GroupAddIcon from "@material-ui/icons/GroupAdd";
 
 const ProfileContent = ({ user, id, authUser }) => {
   const [posts, setPosts] = useState([]);
+  const [totalPostsPublished, setTotalPostsPublished] = useState(0);
   const [postLimit, setPostLimit] = useState(3);
 
   // for fetching all the posts
@@ -37,8 +38,24 @@ const ProfileContent = ({ user, id, authUser }) => {
     }
   });
 
+  const fetchAllUserPostAtaTime = async () => {
+    const res = await fetch(`/getUsersPost/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const body = await res.json();
+
+    if (res.status === 200) {
+      setTotalPostsPublished(body.length);
+    }
+  };
+
   useEffect(() => {
     fetchUserPosts();
+    fetchAllUserPostAtaTime();
   }, [user, id, postLimit]);
 
   return (
@@ -70,7 +87,7 @@ const ProfileContent = ({ user, id, authUser }) => {
               <div>
                 <PostAddIcon />
               </div>
-              <div>{posts.length} Posts Published</div>
+              <div>{totalPostsPublished} Posts Published</div>
             </p>
             <p>
               <div>

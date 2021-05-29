@@ -19,7 +19,6 @@ const Home = () => {
   // the user will be redirected to the login page.
   // Here I am fetching a back-end route which has a middleware
   // Which is checking if the user is authorized
-  // check out auth.js and routes.js (line:17)
   const checkAuth = async () => {
     try {
       const res = await fetch("/auth", {
