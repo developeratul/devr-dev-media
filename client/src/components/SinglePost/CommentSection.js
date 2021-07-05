@@ -81,8 +81,8 @@ const CommentSection = ({ post, user }) => {
                   </div>
 
                   {comment.userId === user._id ||
-                  post.userId === user._id ||
-                  user._id === "608a4f781d3b051b203ed2cb" ? (
+                    post.userId === user._id ||
+                    user._id === "608a4f781d3b051b203ed2cb" ? (
                     <div className="authUserOptions">
                       <Button
                         variant="text"
